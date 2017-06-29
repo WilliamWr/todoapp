@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Todo Items</h1>
+
+<table class="table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <%= image_tag('tiredguy.jpg') %>
+    <!-- <img src="  <a href="https://picturethismaths.files.wordpress.com/2016/03/fig6bigforblog.png?w=419&h=364"></a>" alt=""> -->
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todo_items.each do |todo_item| %>
+      <tr>
+        <td><%= todo_item.description %></td>
+        <td><%= link_to 'Show', todo_item %></td>
+        <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
+        <td><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Todo Item', new_todo_item_path %>
